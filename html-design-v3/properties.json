@@ -1,0 +1,283 @@
+[
+  {
+    "id": 1,
+    "type": "house",
+    "mode": "sale",
+    "label": "NAMAS",
+    "title": "Namai gamtos apsuptyje",
+    "location": "VILNIAUS PRIEMIESTIS",
+    "area": "142 m²",
+    "rooms": "4 kambariai",
+    "extra": "8 a sklypas",
+    "price": "420 000 €",
+    "image": "assets/hero-house.png",
+    "description": "Pavyzdinis namo skelbimas. Čia pateikiamas objekto aprašymas, išplanavimo privalumai, vietovė ir kita pirkėjui svarbi informacija.",
+    "map": {
+      "latitude": 54.70842715,
+      "longitude": 25.29914875,
+      "approximate": true,
+      "label": "Vilnius",
+      "provider": "google",
+      "embedUrl": "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2305.0679772743747!2d25.296573876815586!3d54.70842717271577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTTCsDQyJzMwLjMiTiAyNcKwMTcnNTYuOSJF!5e0!3m2!1slt!2slt!4v1794674154653!5m2!1slt!2slt",
+      "showPin": true
+    },
+    "gallery": [
+      {
+        "src": "assets/hero-house.png",
+        "alt": "Namo išorė – pavyzdinė nuotrauka"
+      },
+      {
+        "src": "assets/apartment.jpg",
+        "alt": "Svetainės interjeras – iliustracinė nuotrauka"
+      },
+      {
+        "src": "assets/interior.jpg",
+        "alt": "Valgomojo ir virtuvės erdvė – iliustracinė nuotrauka"
+      },
+      {
+        "src": "assets/living-room.jpg",
+        "alt": "Poilsio erdvė – iliustracinė nuotrauka"
+      },
+      {
+        "src": "assets/bedroom.jpg",
+        "alt": "Jauki gyvenamoji erdvė – iliustracinė nuotrauka"
+      },
+      {
+        "src": "assets/kitchen.jpg",
+        "alt": "Virtuvės interjeras – iliustracinė nuotrauka"
+      },
+      {
+        "src": "assets/dining-room.jpg",
+        "alt": "Valgomojo interjeras – iliustracinė nuotrauka"
+      },
+      {
+        "src": "assets/bathroom.jpg",
+        "alt": "Vonios kambarys – iliustracinė nuotrauka"
+      }
+    ],
+    "video": {
+      "url": "https://www.facebook.com/reel/1604310117656951/",
+      "shareUrl": "https://www.facebook.com/share/r/151A4XuTk76/"
+    }
+  },
+  {
+    "id": 2,
+    "type": "apartment",
+    "mode": "sale",
+    "label": "BUTAS",
+    "title": "Šviesa ir miesto ritmas",
+    "location": "VILNIUS",
+    "area": "68 m²",
+    "rooms": "3 kambariai",
+    "extra": "3 / 5 aukštas",
+    "price": "249 000 €",
+    "image": "assets/apartment.jpg",
+    "description": "Pavyzdinis buto skelbimas. Ši vieta skirta tikro objekto aprašymui, informacijai apie įrengimą ir gyvenimą kaimynystėje.",
+    "map": {
+      "latitude": 54.70842715,
+      "longitude": 25.29914875,
+      "approximate": true,
+      "label": "Vilnius",
+      "provider": "google",
+      "embedUrl": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18440.543828523958!2d25.299148749999997!3d54.708427150000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1slt!2slt!4v1794673908543!5m2!1slt!2slt"
+    }
+  },
+  {
+    "id": 3,
+    "type": "apartment",
+    "mode": "sale",
+    "label": "BUTAS",
+    "title": "Erdvė naujai pradžiai",
+    "location": "VILNIUS",
+    "area": "54 m²",
+    "rooms": "2 kambariai",
+    "extra": "2 / 4 aukštas",
+    "price": "195 000 €",
+    "image": "assets/interior.jpg",
+    "description": "Pavyzdinis buto skelbimas. Pakeiskite šį tekstą tikra objekto informacija ir pridėkite nuotraukas."
+  },
+  {
+    "id": 4,
+    "type": "apartment",
+    "mode": "rent",
+    "label": "NUOMA · BUTAS",
+    "title": "Jaukūs namai mieste",
+    "location": "VILNIUS",
+    "area": "54 m²",
+    "rooms": "2 kambariai",
+    "extra": "2 / 4 aukštas",
+    "price": "850 € / mėn.",
+    "image": "assets/interior.jpg",
+    "description": "Pavyzdinis nuomos skelbimas. Šviesus dviejų kambarių būstas su atskira miegamojo erdve ir atvira svetaine. Duomenys ir nuotrauka yra iliustraciniai."
+  },
+  {
+    "id": 5,
+    "type": "house",
+    "mode": "sale",
+    "label": "NAMAS",
+    "title": "Šeimos namai su terasa",
+    "location": "VILNIAUS RAJONAS",
+    "area": "168 m²",
+    "rooms": "5 kambariai",
+    "extra": "10 a sklypas",
+    "price": "465 000 €",
+    "image": "assets/house.jpg",
+    "description": "Pavyzdinis šeimos namas su erdvia svetaine, keturiais miegamaisiais ir terasa poilsiui lauke. Duomenys ir nuotrauka yra iliustraciniai.",
+    "map": {
+      "latitude": 54.70842715,
+      "longitude": 25.29914875,
+      "approximate": true,
+      "label": "Vilnius",
+      "provider": "google",
+      "embedUrl": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18440.543828523958!2d25.299148749999997!3d54.708427150000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1slt!2slt!4v1794673908543!5m2!1slt!2slt"
+    }
+  },
+  {
+    "id": 6,
+    "type": "house",
+    "mode": "sale",
+    "label": "NAMAS",
+    "title": "Architektūra kasdienybei",
+    "location": "VILNIAUS PRIEMIESTIS",
+    "area": "215 m²",
+    "rooms": "5 kambariai",
+    "extra": "12 a sklypas",
+    "price": "625 000 €",
+    "image": "assets/villa.jpg",
+    "description": "Pavyzdinis šiuolaikinės architektūros namas su dideliais langais, atviromis gyvenamosiomis erdvėmis ir privačiu kiemu. Duomenys ir nuotrauka yra iliustraciniai."
+  },
+  {
+    "id": 7,
+    "type": "apartment",
+    "mode": "sale",
+    "label": "BUTAS",
+    "title": "Ramus miesto kampelis",
+    "location": "VILNIUS",
+    "area": "76 m²",
+    "rooms": "3 kambariai",
+    "extra": "4 / 6 aukštas",
+    "price": "285 000 €",
+    "image": "assets/living-room.jpg",
+    "description": "Pavyzdinis trijų kambarių butas su šviesia svetaine, dviem miegamaisiais ir vieta darbui iš namų. Duomenys ir nuotrauka yra iliustraciniai."
+  },
+  {
+    "id": 8,
+    "type": "apartment",
+    "mode": "sale",
+    "label": "BUTAS",
+    "title": "Pirmieji savi namai",
+    "location": "VILNIUS",
+    "area": "39 m²",
+    "rooms": "2 kambariai",
+    "extra": "2 / 5 aukštas",
+    "price": "149 000 €",
+    "image": "assets/apartment.jpg",
+    "description": "Pavyzdinis kompaktiškas butas su patogiai suplanuota virtuvės ir svetainės zona bei atskiru miegamuoju. Duomenys ir nuotrauka yra iliustraciniai."
+  },
+  {
+    "id": 9,
+    "type": "other",
+    "mode": "sale",
+    "label": "KOMERCINĖS PATALPOS",
+    "title": "Vieta Jūsų verslo pradžiai",
+    "location": "VILNIUS",
+    "area": "92 m²",
+    "rooms": "3 erdvės",
+    "extra": "1 / 4 aukštas",
+    "price": "215 000 €",
+    "image": "assets/office.jpg",
+    "description": "Pavyzdinės komercinės patalpos biurui ar paslaugų veiklai. Lankstus išplanavimas leidžia įrengti darbo ir susitikimų zonas. Duomenys ir nuotrauka yra iliustraciniai."
+  },
+  {
+    "id": 10,
+    "type": "other",
+    "mode": "sale",
+    "label": "BIURAS",
+    "title": "Erdvė augančiai komandai",
+    "location": "VILNIUS",
+    "area": "135 m²",
+    "rooms": "4 erdvės",
+    "extra": "3 / 5 aukštas",
+    "price": "325 000 €",
+    "image": "assets/office.jpg",
+    "description": "Pavyzdinis biuras su bendra darbo erdve, atskiru susitikimų kambariu ir poilsio zona. Duomenys ir nuotrauka yra iliustraciniai."
+  },
+  {
+    "id": 11,
+    "type": "house",
+    "mode": "rent",
+    "label": "NUOMA · NAMAS",
+    "title": "Lėtesni rytai už miesto",
+    "location": "VILNIAUS PRIEMIESTIS",
+    "area": "142 m²",
+    "rooms": "4 kambariai",
+    "extra": "8 a sklypas",
+    "price": "1 650 € / mėn.",
+    "image": "assets/hero-house.png",
+    "description": "Pavyzdinis nuomojamas namas su privačiu kiemu ir terasa ramiems vakarams. Duomenys ir nuotrauka yra iliustraciniai.",
+    "map": {
+      "latitude": 54.70842715,
+      "longitude": 25.29914875,
+      "approximate": true,
+      "label": "Vilnius",
+      "provider": "google",
+      "embedUrl": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18440.543828523958!2d25.299148749999997!3d54.708427150000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1slt!2slt!4v1794673908543!5m2!1slt!2slt"
+    }
+  },
+  {
+    "id": 12,
+    "type": "house",
+    "mode": "rent",
+    "label": "NUOMA · NAMAS",
+    "title": "Daugiau vietos šeimai",
+    "location": "VILNIAUS RAJONAS",
+    "area": "168 m²",
+    "rooms": "5 kambariai",
+    "extra": "10 a sklypas",
+    "price": "2 100 € / mėn.",
+    "image": "assets/house.jpg",
+    "description": "Pavyzdinis erdvus nuomojamas namas su atskirais miegamaisiais, darbo kambariu ir terasa. Duomenys ir nuotrauka yra iliustraciniai."
+  },
+  {
+    "id": 13,
+    "type": "apartment",
+    "mode": "rent",
+    "label": "NUOMA · BUTAS",
+    "title": "Šviesūs rytai mieste",
+    "location": "VILNIUS",
+    "area": "68 m²",
+    "rooms": "3 kambariai",
+    "extra": "3 / 5 aukštas",
+    "price": "1 100 € / mėn.",
+    "image": "assets/apartment.jpg",
+    "description": "Pavyzdinis nuomojamas butas su baldais ir šviesia bendra virtuvės bei svetainės erdve. Duomenys ir nuotrauka yra iliustraciniai."
+  },
+  {
+    "id": 14,
+    "type": "apartment",
+    "mode": "rent",
+    "label": "NUOMA · BUTAS",
+    "title": "Jaukumas kiekvieną dieną",
+    "location": "VILNIUS",
+    "area": "45 m²",
+    "rooms": "2 kambariai",
+    "extra": "2 / 6 aukštas",
+    "price": "720 € / mėn.",
+    "image": "assets/living-room.jpg",
+    "description": "Pavyzdinis dviejų kambarių būstas, kuriame numatyta atskira miegamojo zona ir vieta poilsiui. Duomenys ir nuotrauka yra iliustraciniai."
+  },
+  {
+    "id": 15,
+    "type": "other",
+    "mode": "rent",
+    "label": "NUOMA · BIURAS",
+    "title": "Darbo vieta su perspektyva",
+    "location": "VILNIUS",
+    "area": "85 m²",
+    "rooms": "3 erdvės",
+    "extra": "2 / 4 aukštas",
+    "price": "1 050 € / mėn.",
+    "image": "assets/office.jpg",
+    "description": "Pavyzdinės nuomojamos biuro patalpos nedidelei komandai su atskira susitikimų erdve. Duomenys ir nuotrauka yra iliustraciniai."
+  }
+]
