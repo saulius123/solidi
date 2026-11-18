@@ -282,7 +282,7 @@ svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-wi
 .property-aside { position: sticky; top: calc(var(--header-h) + 24px); }
 .price-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); }
 .price-card .muted { margin: 6px 0 0; font-size: .9rem; }
-.agent-card { display: flex; flex-direction: column; align-items: center; gap: 14px; margin: 28px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); text-align: center; }
+.agent-card { display: grid; grid-template-columns: min(55%, 180px) minmax(0, 1fr); align-items: center; gap: 16px; margin: 28px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); text-align: left; }
 .agent-card div { display: flex; flex-direction: column; }
 .agent-card strong { font-weight: 500; }
 .agent-card span { font-size: .88rem; color: var(--ink-soft); }
@@ -424,8 +424,9 @@ h1,h2,h3 {font-weight:400;letter-spacing:-.035em}
 .portrait img {position:absolute;max-width:none;height:auto;object-fit:initial;display:block}
 .portrait[data-broker="lina"] img {width:180%;left:-40%;top:-49%}
 .portrait[data-broker="giedre"] img {width:160%;left:-30%;top:-18%}
-.agent-card .portrait {width:140px;height:140px;border-radius:14px}
-.agent-card div {gap:4px;max-width:260px}
+.agent-card .portrait {width:100%;height:auto;aspect-ratio:3/4;border-radius:14px}
+.agent-card .portrait[data-broker="lina"] img {top:-34%}
+.agent-card div {gap:6px;min-width:0;overflow-wrap:anywhere}
 .agent-card strong {font-size:15px;line-height:1.5}
 
 /* Keep the three property-card facts together without changing the detail page. */
@@ -473,3 +474,8 @@ h1,h2,h3 {font-weight:400;letter-spacing:-.035em}
 .contact-social a {display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid #34432e80;border-radius:50%;color:#202a20;text-decoration:none;transition:background .2s,border-color .2s}
 .contact-social svg {width:19px;height:19px;stroke-width:1.6}
 .contact-social a:hover {background:#ffffff26;border-color:#202a20}
+
+a.address-link {width:fit-content;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
+a.address-link:hover {color:var(--terra-text);text-decoration-color:currentColor}
+#vieta {scroll-margin-top:calc(var(--header-h) + 24px)}
+@media (prefers-reduced-motion:no-preference) {html {scroll-behavior:smooth}}

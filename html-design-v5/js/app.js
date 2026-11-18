@@ -278,7 +278,7 @@ function renderProperty(id) {
         <article class="property-main">
           <span class="badge badge--inline">${p.deal === "pardavimas" ? TYPE_LABEL[p.type] : DEAL_LABEL[p.deal]}</span>
           <h1>${esc(p.title)}</h1>
-          <p class="address">${ICON.pin}${esc(p.address)}</p>
+          ${map ? `<a class="address address-link" href="#vieta">${ICON.pin}${esc(p.address)}</a>` : `<p class="address">${ICON.pin}${esc(p.address)}</p>`}
 
           <ul class="specs specs--lg">
             <li>${ICON.area}<span><strong>${fmtNum.format(p.area)} m²</strong>Plotas</span></li>
@@ -295,7 +295,7 @@ function renderProperty(id) {
 
           ${p.features?.length ? `<h2 class="h-sm">Ypatybės</h2><ul class="features">${p.features.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
 
-          ${map ? `<h2 class="h-sm">Vieta</h2>${map}` : ""}
+          ${map ? `<h2 class="h-sm" id="vieta">Vieta</h2>${map}` : ""}
         </article>
 
         <aside class="property-aside">
