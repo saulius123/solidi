@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
  let consent; try { consent = JSON.parse(localStorage.getItem('solidi-consent-v1')); } catch {}
  const panel = document.createElement('section');
  panel.className = 'cookie-panel'; panel.setAttribute('aria-label','Slapukų pasirinkimai'); panel.hidden = Boolean(consent);
- panel.innerHTML = '<div><h2>Jūsų privatumas</h2><p>Būtinus nustatymus išsaugome naršyklėje. Analitiką ir rinkodarą įjungsime tik jums pasirinkus. <a href="#/privatumas">Plačiau</a></p><div class="cookie-options"><label><input type="checkbox" name="analytics"> Analitika</label><label><input type="checkbox" name="marketing"> Rinkodara</label></div></div><div class="cookie-actions"><button class="btn btn-outline" data-consent="none">Tik būtini</button><button class="btn btn-outline" data-consent="selected">Išsaugoti pasirinkimus</button><button class="btn btn-dark" data-consent="all">Priimti visus</button></div>';
- if (document.body.dataset.property) panel.querySelector('a').href = '../../index.html#/privatumas';
+ panel.innerHTML = '<div><h2>Jūsų privatumas</h2><p>Būtinus nustatymus išsaugome naršyklėje. Analitiką ir rinkodarą įjungsime tik jums pasirinkus. <a href="privatumo-politika/">Plačiau</a></p><div class="cookie-options"><label><input type="checkbox" name="analytics"> Analitika</label><label><input type="checkbox" name="marketing"> Rinkodara</label></div></div><div class="cookie-actions"><button class="btn btn-outline" data-consent="none">Tik būtini</button><button class="btn btn-outline" data-consent="selected">Išsaugoti pasirinkimus</button><button class="btn btn-dark" data-consent="all">Priimti visus</button></div>';
+ panel.querySelector('a').href = (document.body.dataset.property ? '../../' : document.body.dataset.page ? '../' : '') + 'privatumo-politika/';
  document.body.append(panel);
  const apply = c => {
   if(c?.analytics && /^G-[A-Z0-9]+$/.test(SOLIDI_SETTINGS.googleAnalyticsId) && !window.solidiGaLoaded) {

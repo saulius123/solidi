@@ -14,15 +14,15 @@ Serve this folder using any static server with directory index support (for exam
 - Google Maps loaded automatically on individual properties, without a Maps API key.
 - Contact form preview, privacy draft and persistent optional tracking choices.
 
-## Rebuild property pages
+## Rebuild standalone pages
 
-Run `node build-pages.cjs` from this folder after changing property data or shared markup/styles referenced by the generated documents. The generator updates `objektai/<slug>/index.html` for each property. Property content is in the HTML itself; JavaScript adds gallery, maps, form and consent interactions. Homepage categories still use JavaScript. Old property hash links redirect to the corresponding standalone URL.
+Run `node build-pages.cjs` from this folder after changing property data or shared markup/styles referenced by the generated documents. The generator updates `objektai/<slug>/index.html` for each property and `privatumo-politika/index.html` for the privacy policy. The public privacy URL is `/privatumo-politika/`; old privacy hash URLs redirect there. Property content is in the HTML itself; JavaScript adds gallery, maps, form and consent interactions. Homepage categories still use JavaScript. Old property hash links redirect to the corresponding standalone URL.
 
 ## Content and setup
 
 - js/data.js: brokers, properties, image URLs and coordinates. Properties and photos are demonstration content. Agent assignments are examples. The supplied broker portraits are in assets/brokers and use CSS face-focused crops. Add confirmed phone numbers here; empty phones are hidden.
 - js/settings.js: contact email, Google Analytics measurement ID and Meta Pixel ID. Tracking is disabled with empty IDs and only loads after the matching visitor choice. Full-page visits are tracked; SPA route/conversion tracking must be configured for the eventual production integration.
-- Social account URLs have not been supplied. Reserved settings are placeholders for later integration; no fake social links are shown.
+- Facebook and Instagram icon links in the footer and shared homepage contact block currently point to facebook.com and instagram.com as requested placeholders. Replace the hrefs in index.html with agency profile links, then rebuild property pages.
 - The preview form does not send data or open an email app. It shows a demonstration notice on submit. The production WordPress form will send email through a server mail handler.
 - Broker emails use the requested giedre@solidi.lt and lina@solidi.lt addresses; mailbox provisioning is separate.
 - Reference site baltiberzai.lt could not be retrieved. Phone numbers were not invented.

@@ -54,7 +54,7 @@
     </div>
   </header>
 
-  <!-- Standalone property page. Rebuild with node build-pages.cjs. -->
+  <!-- Standalone page. Rebuild with node build-pages.cjs. -->
   <main id="app" tabindex="-1">
   <section class="property">
     <div class="wrap">
@@ -115,7 +115,7 @@
     </div>
     <label><span>El. paštas</span><input name="email" type="email" required autocomplete="email"></label>
     <label><span>Žinutė</span><textarea name="message" rows="3">Sveiki, domina objektas: Parduodamas kotedžas Pavilnyje su vaizdu į slėnį.</textarea></label>
-    <p class="form-privacy">Pateikdami užklausą susipažinkite su <a href="../../index.html#/privatumas">privatumo politika</a>.</p>
+    <p class="form-privacy">Pateikdami užklausą susipažinkite su <a href="../../privatumo-politika/" target="_blank" rel="noopener noreferrer">privatumo politika</a>.</p>
     <button class="btn btn-dark" type="submit">Siųsti laišką <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
     <p class="form-ok" role="status" hidden>Tai demonstracinė forma. Laiškų siuntimas bus prijungtas veikiančioje svetainėje.</p>
   </form>
@@ -222,12 +222,19 @@
         <h4>Kontaktai</h4>
         <a href="mailto:giedre@solidi.lt">giedre@solidi.lt</a>
         <a href="mailto:lina@solidi.lt">lina@solidi.lt</a>
-        <span>Vilnius ir jo priemiesčiai</span>
+        <div class="footer-social" role="group" aria-label="Solidi socialiniai tinklai">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook (atsidaro naujame skirtuke)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1 .3-2 2-2h2V1.5A26 26 0 0 0 15 1c-3 0-5 1.8-5 5v3H7v4h3v8"/></svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (atsidaro naujame skirtuke)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
       </div>
     </div>
     <div class="wrap footer-bottom">
       <span>© <span id="year"></span> Solidi. Visos teisės saugomos.</span>
-      <a href="../../index.html#/privatumas">Privatumo politika</a>
+      <a href="../../privatumo-politika/">Privatumo politika</a>
       <button class="cookie-settings" type="button">Slapukų nustatymai</button>
       <a href="#top" class="to-top">Į viršų ↑</a>
     </div>
@@ -243,8 +250,8 @@
   </div>
 
   <script src="../../js/settings.js"></script>
-  <script src="../../js/privacy.js"></script>
+  <script src="../../js/privacy.js?v=static-privacy-1"></script>
   <script src="../../js/data.js"></script>
-  <script src="../../js/app.js"></script>
+  <script src="../../js/app.js?v=contact-social-1"></script>
 </body>
 </html>

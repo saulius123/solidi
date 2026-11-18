@@ -461,3 +461,15 @@ h1,h2,h3 {font-weight:400;letter-spacing:-.035em}
 .contact-people .contact-method {display:flex;align-items:center;gap:12px;margin-top:12px;text-decoration:none}
 .contact-method svg {width:19px;height:19px;color:#34432e;flex:none}
 .contact-method:hover span {text-decoration:underline;text-underline-offset:4px}
+
+/* Shared agency social accounts appear only in the footer. */
+.footer-social {display:flex;gap:10px;margin-top:20px}
+.footer-grid .footer-social a {display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;margin:0;border:1px solid #9ea29980;border-radius:50%;color:var(--warm);transition:background .2s,border-color .2s}
+.footer-social svg {width:19px;height:19px;stroke-width:1.6}
+.footer-grid .footer-social a:hover {background:#ffffff12;border-color:var(--warm)}
+
+/* Agency social links shared beneath both brokers in the contact section. */
+.contact-social {display:flex;gap:10px;margin-top:26px;padding-top:22px;border-top:1px solid #34432e40}
+.contact-social a {display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid #34432e80;border-radius:50%;color:#202a20;text-decoration:none;transition:background .2s,border-color .2s}
+.contact-social svg {width:19px;height:19px;stroke-width:1.6}
+.contact-social a:hover {background:#ffffff26;border-color:#202a20}

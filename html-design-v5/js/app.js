@@ -4,7 +4,7 @@
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const app = $("#app");
-const SITE_ROOT = document.body.dataset.property ? "../../" : "";
+const SITE_ROOT = document.body.dataset.property ? "../../" : document.body.dataset.page ? "../" : "";
 const propertyHref = (id) => `${SITE_ROOT}objektai/${encodeURIComponent(id)}/`;
 
 /* ---------- helpers ---------- */
@@ -96,7 +96,7 @@ function contactForm({ message = "", compact = false } = {}) {
     </div>
     <label><span>El. paštas</span><input name="email" type="email" required autocomplete="email"></label>
     <label><span>Žinutė</span><textarea name="message" rows="${compact ? 3 : 4}">${esc(message)}</textarea></label>
-    <p class="form-privacy">Pateikdami užklausą susipažinkite su <a href="#/privatumas">privatumo politika</a>.</p>
+    <p class="form-privacy">Pateikdami užklausą susipažinkite su <a href="${SITE_ROOT}privatumo-politika/" target="_blank" rel="noopener noreferrer">privatumo politika</a>.</p>
     <button class="btn btn-dark" type="submit">Siųsti laišką ${ICON.arrow}</button>
     <p class="form-ok" role="status" hidden>Tai demonstracinė forma. Laiškų siuntimas bus prijungtas veikiančioje svetainėje.</p>
   </form>`;
@@ -201,6 +201,14 @@ function renderHome() {
             <a class="contact-method" href="mailto:${esc(a.email)}">${ICON.mail}<span>${esc(a.email)}</span></a>
           </div>`;
         }).join("")}</div>
+        <div class="contact-social" role="group" aria-label="Solidi socialiniai tinklai">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook (atsidaro naujame skirtuke)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1 .3-2 2-2h2V1.5A26 26 0 0 0 15 1c-3 0-5 1.8-5 5v3H7v4h3v8"/></svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (atsidaro naujame skirtuke)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
       </div>
       <div class="contact-card">${contactForm()}</div>
     </div>
@@ -349,8 +357,9 @@ function router() {
   } else if (["apie", "paslaugos", "kontaktai"].includes(parts[0])) {
     page = "home"; scrollTarget = parts[0];
     html = lastPage === "home" ? null : renderHome();
-  } else if (parts[0] === "privatumas") {
-    page = "privacy"; html = renderPrivacy();
+  } else if (["privatumas", "privatumo-politika"].includes(parts[0])) {
+    location.replace(`${SITE_ROOT}privatumo-politika/`);
+    return;
   } else if (parts[0] === "parduodame" && (!parts[1] || SUBTYPE_SLUG[parts[1]])) {
     page = "home"; scrollTarget = "objektai";
     html = renderHome();
@@ -484,7 +493,7 @@ document.addEventListener("click", (e) => {
   if (a) { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
   // Paspaudus tą pačią nuorodą (pvz. „Apie mus“ antrą kartą) – vis tiek nuslinkti
   const same = e.target.closest('a[href^="#/"]');
-  if (same && same.getAttribute("href") === location.hash) { e.preventDefault(); router(); }
+  if (same && same.target !== "_blank" && !e.ctrlKey && !e.metaKey && !e.shiftKey && same.getAttribute("href") === location.hash) { e.preventDefault(); router(); }
 });
 
 $("#year").textContent = new Date().getFullYear();
@@ -495,7 +504,7 @@ if (typeof SOLIDI_BUILD === "undefined") {
     bindForms();
 
     setActiveNav(["objektas", propertyId]);
-  } else {
+  } else if (!document.body.dataset.page) {
     window.addEventListener("hashchange", router);
     router();
   }
