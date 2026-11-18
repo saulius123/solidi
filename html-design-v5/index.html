@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solidi – nekilnojamojo turto agentūra Vilniuje</title>
+  <meta name="description" content="Solidi – šiuolaikiška nekilnojamojo turto agentūra. Būsto pardavimo paslaugos Vilniuje ir jo priemiesčiuose.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 58'%3E%3Cg fill='none' stroke='%2330332F' stroke-width='4'%3E%3Cpath d='M6 56V24l14-8v40M26 56V12l14-9v53M46 56V18l12 8v30'/%3E%3C/g%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip-link" href="#app">Pereiti prie turinio</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="logo" href="#/" aria-label="Solidi – pradžia">
+        <svg class="logo-mark" viewBox="0 0 64 58" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter">
+            <path d="M6 56V24l14-8v40"/><path d="M10 56V26.3l6-3.4V56"/>
+            <path d="M26 56V12l14-9v53"/><path d="M30 56V14.3l6-3.9V56"/>
+            <path d="M46 56V18l12 8v30"/><path d="M50 56V25.2l4 2.6V56"/>
+          </g>
+        </svg>
+        <span class="logo-text">
+          <span class="logo-name">Solidi</span>
+          <span class="logo-sub">Real estate</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Meniu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="main-nav" aria-label="Pagrindinis meniu">
+        <a class="nav-link" href="#/paslaugos" data-nav="paslaugos">NT pardavimas</a>
+        <div class="nav-item has-sub">
+          <a class="nav-link" href="#/parduodame" data-nav="parduodame">
+            Parduodame
+            <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          </a>
+          <div class="sub">
+            <a href="#/projektai">Projektai</a>
+            <a href="#/parduodame/namai" data-nav="parduodame/namai">Namai</a>
+            <a href="#/parduodame/butai" data-nav="parduodame/butai">Butai</a>
+            <a href="#/parduodame/kitas" data-nav="parduodame/kitas">Kitas NT</a>
+          </div>
+        </div>
+        <a class="nav-link" href="#/nuoma" data-nav="nuoma">Nuoma</a>
+        <a class="nav-link" href="#/projektai" data-nav="projektai">Projektai</a>
+        <a class="nav-link" href="#/apie" data-nav="apie">Apie mus</a>
+        <a class="btn btn-dark btn-sm nav-cta" href="#/kontaktai">Susisiekti</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ PAGE CONTENT (rendered by js/app.js) ============ -->
+  <main id="app" tabindex="-1"></main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <a class="logo logo--light" href="#/">
+          <svg class="logo-mark" viewBox="0 0 64 58" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="2.4">
+              <path d="M6 56V24l14-8v40"/><path d="M26 56V12l14-9v53"/><path d="M46 56V18l12 8v30"/>
+            </g>
+          </svg>
+          <span class="logo-text"><span class="logo-name">Solidi</span><span class="logo-sub">Real estate</span></span>
+        </a>
+        <p class="footer-note">Nekilnojamojo turto paslaugos Vilniuje ir jo priemiesčiuose.</p>
+      </div>
+      <div>
+        <h4>Objektai</h4>
+        <a href="#/parduodame/namai">Namai</a>
+        <a href="#/parduodame/butai">Butai</a>
+        <a href="#/parduodame/kitas">Kitas NT</a>
+        <a href="#/nuoma">Nuoma</a>
+        <a href="#/projektai">Projektai</a>
+      </div>
+      <div>
+        <h4>Solidi</h4>
+        <a href="#/apie">Apie mus</a>
+        <a href="#/paslaugos">Paslaugos</a>
+        <a href="#/kontaktai">Susisiekti</a>
+      </div>
+      <div>
+        <h4>Kontaktai</h4>
+        <a href="mailto:giedre@solidi.lt">giedre@solidi.lt</a>
+        <a href="mailto:lina@solidi.lt">lina@solidi.lt</a>
+        <span>Vilnius ir jo priemiesčiai</span>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© <span id="year"></span> Solidi. Visos teisės saugomos.</span>
+      <a href="#/privatumas">Privatumo politika</a>
+      <button class="cookie-settings" type="button">Slapukų nustatymai</button>
+      <a href="#top" class="to-top">Į viršų ↑</a>
+    </div>
+  </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Nuotraukų galerija">
+    <button class="lb-close" aria-label="Uždaryti">×</button>
+    <button class="lb-prev" aria-label="Ankstesnė">‹</button>
+    <img alt="">
+    <button class="lb-next" aria-label="Kita">›</button>
+    <div class="lb-count"></div>
+  </div>
+
+  <script src="js/settings.js"></script>
+  <script src="js/privacy.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
