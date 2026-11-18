@@ -15,8 +15,8 @@
 const UNSPLASH = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=80`;
 
 const AGENTS = {
-  giedre: { name: "Giedrė Daugirdaitė-Pajaujė", role: "NT brokerė", phone: "", email: "giedre@solidi.lt", photo: "assets/brokers/giedre.jpg" },
-  lina: { name: "Lina Matukienė", role: "NT brokerė", phone: "", email: "lina@solidi.lt", photo: "assets/brokers/lina.jpg" }
+  giedre: { name: "Giedrė Daugirdaitė", role: "NT brokerė", phone: "", email: "giedre@solidi.lt", photo: "assets/brokers/giedre.jpg" },
+  lina: { name: "Lina Matukienė", role: "NT brokerė", phone: "", email: "lina@solidi.lt", photo: "assets/brokers/lina-portrait.webp" }
 };
 
 const PROPERTIES = [

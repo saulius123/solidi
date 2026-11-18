@@ -8,7 +8,7 @@ Serve this folder using any static server with directory index support (for exam
 - V1 Georgia/Arial typography, hero captions, sage contact section and original v4 dark footer.
 - Hero background automatically cycles through three local photos every six seconds, with a gentle fade and no visible controls. Reduced-motion preference keeps the first photo static.
 - Client document introduction and three service stages.
-- Two brokers (in contacts and property cards): Lina Matukienė and Giedrė Daugirdaitė-Pajaujė.
+- Two brokers (in contacts and property cards): Lina Matukienė and Giedrė Daugirdaitė.
 - Homepage categories: Visi objektai, Projektai, Namai, Butai, Kitas NT.
 - Sale, rental and project categories on the homepage; individual property views and photo gallery with keyboard navigation. No separate listing pages.
 - Google Maps loaded automatically on individual properties, without a Maps API key.
