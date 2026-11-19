@@ -304,11 +304,13 @@ function renderProperty(id) {
             ${p.deal !== "nuoma" && !p.priceFrom ? `<p class="muted">${fmtNum.format(Math.round(p.price / p.area))} €/m²</p>` : ""}
             <div class="agent-card">
               ${agentAvatar(a, "avatar avatar--lg")}
-              <div><strong>${esc(a.name)}</strong><span>${esc(a.role)}</span></div>
-            </div>
-            <div class="agent-actions">
-              <a class="btn btn-outline" href="tel:${(a.phone || "+370 600 00000").replace(/\s/g, "")}">${ICON.phone} ${esc(a.phone || "+370 600 00000")}</a>
-              <a class="btn btn-outline" href="mailto:${a.email}?subject=${encodeURIComponent(p.title)}">${ICON.mail} ${esc(a.email)}</a>
+              <div class="agent-details">
+                <strong>${esc(a.name)}</strong><span>${esc(a.role)}</span>
+                <div class="agent-actions">
+                  <a class="agent-contact" href="tel:${(a.phone || "+370 600 00000").replace(/\s/g, "")}">${ICON.phone}<span>${esc(a.phone || "+370 600 00000")}</span></a>
+                  <a class="agent-contact" href="mailto:${esc(a.email)}?subject=${encodeURIComponent(p.title)}">${ICON.mail}<span>${esc(a.email)}</span></a>
+                </div>
+              </div>
             </div>
             <h3 class="h-xs">Užsiregistruoti apžiūrai</h3>
             ${contactForm({ message: `Sveiki, domina objektas: ${p.title.replace(/\.$/, "")}.`, compact: true })}
