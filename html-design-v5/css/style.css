@@ -357,20 +357,21 @@ svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-wi
   .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--warm); }
   .nav-toggle { display: block; }
   .nav {
+    display: none;
     position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0;
     z-index: 1; height: calc(100dvh - var(--header-h)); overscroll-behavior: contain;
     flex-direction: column; align-items: stretch; gap: 0; padding: 16px 24px 32px;
     background: var(--warm); overflow-y: auto;
-    opacity: 0; visibility: hidden; transform: none; transition: none;
+    opacity: 0; visibility: hidden; pointer-events: none; transform: none; transition: none;
   }
   .nav-open .site-header { position: fixed; inset: 0; z-index: 100; background: var(--warm); }
-  .nav-open .nav { opacity: 1; visibility: visible; transform: none; }
+  .nav-open .nav { display: flex; opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
   .nav-open { overflow: hidden; }
   .nav-link { font: 500 1.7rem var(--serif); padding: 14px 0; border-bottom: 1px solid var(--line); }
   .nav-link::after { display: none; }
   .nav-link.is-active { color: var(--terra-text); }
   .chev { display: none; }
-  .sub { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 0; background: none; padding: 6px 0 10px 16px; }
+  .sub { position: static; opacity: 1; visibility: inherit; transform: none; box-shadow: none; border: 0; background: none; padding: 6px 0 10px 16px; }
   .sub a { padding: 8px 0; }
   .nav-cta { margin: 24px 0 0; padding: 16px; }
 

@@ -425,6 +425,7 @@ function bindForms() {
 /* ---------- galerija / lightbox ---------- */
 const lb = $("#lightbox");
 let lbImages = [], lbIndex = 0, lbTrigger = null;
+let lbBackground = [];
 
 function bindGallery(p) {
   if (!p) return;
@@ -435,6 +436,12 @@ function bindGallery(p) {
 }
 function openLightbox(i) {
   lbTrigger = document.activeElement;
+  closeMobileNav();
+  lbBackground = [app, $(".site-header"), $(".site-footer")].filter(Boolean).map(element => {
+    const previous = element.inert;
+    element.inert = true;
+    return {element, previous};
+  });
   lbIndex = i;
   updateLightbox();
   lb.hidden = false;
@@ -447,6 +454,8 @@ function closeLightbox() {
   lb.hidden = true;
   document.documentElement.classList.remove("gallery-open");
   document.body.style.overflow = "";
+  lbBackground.forEach(({element, previous}) => { element.inert = previous; });
+  lbBackground = [];
   lbTrigger?.focus();
 }
 function updateLightbox() {
@@ -574,15 +583,16 @@ window.addEventListener("resize", () => { if (!lb.hidden) resetGalleryZoom(); })
 
 /* ---------- mobilus meniu ---------- */
 const toggle = $(".nav-toggle");
-toggle.addEventListener("click", () => {
-  const open = toggle.getAttribute("aria-expanded") !== "true";
-  toggle.setAttribute("aria-expanded", open);
+const mobileNav = $("#main-nav");
+function setMobileNav(open) {
+  toggle.setAttribute("aria-expanded", String(open));
   document.body.classList.toggle("nav-open", open);
-});
-function closeMobileNav() {
-  toggle.setAttribute("aria-expanded", "false");
-  document.body.classList.remove("nav-open");
+  mobileNav.inert = window.matchMedia("(max-width: 920px)").matches && !open;
 }
+toggle.addEventListener("click", () => {
+  setMobileNav(toggle.getAttribute("aria-expanded") !== "true");
+});
+function closeMobileNav() { setMobileNav(false); }
 
 /* ---------- header šešėlis slenkant ---------- */
 window.addEventListener("scroll", () => {
@@ -600,6 +610,8 @@ document.addEventListener("click", (e) => {
 
 $("#year").textContent = new Date().getFullYear();
 if (typeof SOLIDI_BUILD === "undefined") {
+  window.matchMedia("(max-width: 920px)").addEventListener("change", closeMobileNav);
+  closeMobileNav();
   const propertyId = document.body.dataset.property;
   if (propertyId) {
     bindGallery(PROPERTIES.find(p => p.id === propertyId));
