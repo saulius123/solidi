@@ -480,10 +480,12 @@ const galleryImage = $("img", galleryStage);
 const galleryPointers = new Map();
 let galleryZoom = { scale: 1, x: 0, y: 0 };
 let galleryGesture = null;
+let gallerySwipe = null;
 
 function resetGalleryZoom() {
   galleryPointers.clear();
   galleryGesture = null;
+  gallerySwipe = null;
   galleryZoom = { scale: 1, x: 0, y: 0 };
   paintGalleryZoom();
 }
@@ -511,6 +513,11 @@ function startGalleryGesture() {
 galleryStage.addEventListener("pointerdown", event => {
   if (event.pointerType === "mouse" && event.button !== 0) return;
   event.preventDefault();
+  gallerySwipe = galleryPointers.size === 0
+    ? {id: event.pointerId, x: event.clientX, y: event.clientY,
+       panX: galleryZoom.x,
+       limitX: Math.max(0, (galleryImage.offsetWidth * galleryZoom.scale - galleryStage.clientWidth) / 2)}
+    : null;
   galleryPointers.set(event.pointerId, {x: event.clientX, y: event.clientY});
   galleryStage.setPointerCapture(event.pointerId);
   startGalleryGesture();
@@ -534,7 +541,24 @@ galleryStage.addEventListener("pointermove", event => {
   paintGalleryZoom();
 });
 function endGalleryPointer(event) {
-  if (!galleryPointers.delete(event.pointerId)) return;
+  if (!galleryPointers.has(event.pointerId)) return;
+  const swipe = gallerySwipe;
+  const canSwipe = event.type === "pointerup" && galleryPointers.size === 1
+    && swipe?.id === event.pointerId;
+  galleryPointers.delete(event.pointerId);
+  gallerySwipe = null;
+  if (canSwipe) {
+    const dx = event.clientX - swipe.x;
+    const dy = event.clientY - swipe.y;
+    const threshold = Math.max(40, Math.min(80, galleryStage.clientWidth * 0.15));
+    // Consume the movement available inside the photo before navigating.
+    const availablePan = dx < 0 ? swipe.panX + swipe.limitX : swipe.limitX - swipe.panX;
+    const pastEdge = Math.max(0, Math.abs(dx) - availablePan);
+    if (pastEdge >= threshold && Math.abs(dx) > Math.abs(dy) * 1.3) {
+      step(dx < 0 ? 1 : -1);
+      return;
+    }
+  }
   startGalleryGesture();
 }
 for (const type of ["pointerup", "pointercancel", "lostpointercapture"]) {

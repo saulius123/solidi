@@ -36,3 +36,5 @@ JavaScript syntax, generated homepage, all ten standalone property pages, extens
 ## Gallery gestures
 
 On mobile, pinch inside the open gallery to zoom the photo up to 4×, then drag to pan. Changing the photo resets its zoom. The overlay prevents page pinch/scroll while open; normal browser zoom remains available outside the gallery. Double-clicking the photo toggles 2× zoom.
+
+Swipe left/right in the gallery to change photos. When zoomed, dragging pans the photo first; continuing past a horizontal edge changes to the next/previous photo on release. Short, vertical, cancelled and multi-touch gestures do not navigate.
