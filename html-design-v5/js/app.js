@@ -255,7 +255,7 @@ function renderProperty(id) {
     .slice(0, 3);
 
   const [lat, lon] = p.coords || [];
-  const map = p.coords ? `<div class="map"><iframe title="Google Maps - ${esc(p.address)}" src="https://maps.google.com/maps?q=${encodeURIComponent(`${lat},${lon}`)}&amp;z=15&amp;output=embed" loading="eager" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>` : "";
+  const map = p.coords ? `<div class="map"><iframe title="Google Maps - ${esc(p.address)}" src="https://maps.google.com/maps?q=${encodeURIComponent(`${lat},${lon}`)}&amp;z=15&amp;output=embed" loading="eager" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div><div class="map-actions"><span class="map-touch-hint">Žemėlapį judinkite dviem pirštais.</span><a href="https://www.google.com/maps?q=${encodeURIComponent(`${lat},${lon}`)}" target="_blank" rel="noopener noreferrer">Atidaryti Google Maps ↗</a></div>` : "";
 
   const third = thirdSpec(p);
 

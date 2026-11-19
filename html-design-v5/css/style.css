@@ -277,7 +277,7 @@ svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-wi
 .features li { padding: 8px 16px; border-radius: 999px; background: var(--sand); font-size: .92rem; }
 .features li::before { content: "✓"; color: var(--terra-text); margin-right: 8px; }
 .map { border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 8; background: var(--sand); border: 1px solid var(--line); }
-.map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(.4) sepia(.12); }
+.map iframe { display: block; width: 100%; height: 100%; border: 0; pointer-events: auto; touch-action: auto; filter: grayscale(.4) sepia(.12); }
 
 .property-aside { position: sticky; top: calc(var(--header-h) + 24px); }
 .price-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); }
@@ -502,3 +502,12 @@ html.gallery-open,html.gallery-open body {overflow:hidden;overscroll-behavior:no
 .price-card .h-xs {margin:20px 0 12px}
 .form--compact {row-gap:10px}
 .form--compact .form-privacy {margin:8px 0 0;line-height:1.5}
+
+.map-actions {display:flex;justify-content:flex-end;align-items:center;gap:16px;margin-top:12px;font-size:12px}
+.map-actions a {color:var(--ink);text-underline-offset:4px}
+.map-touch-hint {display:none;color:var(--ink-soft)}
+@media(max-width:920px) {
+  .map {aspect-ratio:auto;height:clamp(360px,60svh,520px)}
+  .map-actions {justify-content:space-between;flex-wrap:wrap;gap:8px 16px}
+  .map-touch-hint {display:inline}
+}
