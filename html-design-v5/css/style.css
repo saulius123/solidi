@@ -333,7 +333,7 @@ svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-wi
 /* ---------- lightbox ---------- */
 .lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(24,26,23,.95); display: grid; place-items: center; padding: 64px 80px; }
 .lightbox[hidden] { display: none; }
-.lightbox img { max-width: 100%; max-height: calc(100vh - 128px); object-fit: contain; border-radius: 6px; }
+.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; transform-origin: center; user-select: none; -webkit-user-drag: none; }
 .lightbox button { position: absolute; background: none; border: 0; color: #fff; cursor: pointer; font: 300 3rem/1 var(--sans); padding: 12px 20px; opacity: .8; }
 .lightbox button:hover { opacity: 1; }
 .lb-close { top: 12px; right: 16px; }
@@ -483,3 +483,12 @@ a.address-link {width:fit-content;text-decoration:underline;text-decoration-colo
 a.address-link:hover {color:var(--terra-text);text-decoration-color:currentColor}
 #vieta {scroll-margin-top:calc(var(--header-h) + 24px)}
 @media (prefers-reduced-motion:no-preference) {html {scroll-behavior:smooth}}
+
+/* Photo gestures never scale or scroll the background document. */
+html.gallery-open,html.gallery-open body {overflow:hidden;overscroll-behavior:none}
+.lightbox {overflow:hidden;overscroll-behavior:none;touch-action:none}
+.lb-stage {position:absolute;inset:64px 80px;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:none}
+.lb-stage.is-zoomed {cursor:grab}
+.lb-stage.is-zoomed:active {cursor:grabbing}
+.lightbox button,.lb-count {z-index:2}
+@media(max-width:600px) {.lb-stage {inset:56px 8px}}

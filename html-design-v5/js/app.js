@@ -439,14 +439,18 @@ function openLightbox(i) {
   updateLightbox();
   lb.hidden = false;
   document.body.style.overflow = "hidden";
+  document.documentElement.classList.add("gallery-open");
   $(".lb-close", lb).focus();
 }
 function closeLightbox() {
+  resetGalleryZoom();
   lb.hidden = true;
+  document.documentElement.classList.remove("gallery-open");
   document.body.style.overflow = "";
   lbTrigger?.focus();
 }
 function updateLightbox() {
+  resetGalleryZoom();
   $("img", lb).src = lbImages[lbIndex];
   $("img", lb).alt = `Objekto nuotrauka ${lbIndex + 1}`;
   $(".lb-count", lb).textContent = `${lbIndex + 1} / ${lbImages.length}`;
@@ -469,6 +473,80 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") step(-1);
   if (e.key === "ArrowRight") step(1);
 });
+
+/* Pinch and drag are scoped to the gallery; page zoom stays available outside it. */
+const galleryStage = $(".lb-stage", lb);
+const galleryImage = $("img", galleryStage);
+const galleryPointers = new Map();
+let galleryZoom = { scale: 1, x: 0, y: 0 };
+let galleryGesture = null;
+
+function resetGalleryZoom() {
+  galleryPointers.clear();
+  galleryGesture = null;
+  galleryZoom = { scale: 1, x: 0, y: 0 };
+  paintGalleryZoom();
+}
+function paintGalleryZoom() {
+  const limitX = Math.max(0, (galleryImage.offsetWidth * galleryZoom.scale - galleryStage.clientWidth) / 2);
+  const limitY = Math.max(0, (galleryImage.offsetHeight * galleryZoom.scale - galleryStage.clientHeight) / 2);
+  galleryZoom.x = Math.max(-limitX, Math.min(limitX, galleryZoom.x));
+  galleryZoom.y = Math.max(-limitY, Math.min(limitY, galleryZoom.y));
+  galleryImage.style.transform = `translate(${galleryZoom.x}px, ${galleryZoom.y}px) scale(${galleryZoom.scale})`;
+  galleryStage.classList.toggle("is-zoomed", galleryZoom.scale > 1);
+}
+function startGalleryGesture() {
+  const points = [...galleryPointers.values()];
+  if (!points.length) { galleryGesture = null; return; }
+  const [a, b] = points;
+  const rect = galleryStage.getBoundingClientRect();
+  const midpoint = b ? {x: (a.x + b.x) / 2, y: (a.y + b.y) / 2} : a;
+  galleryGesture = {
+    count: b ? 2 : 1, start: {...galleryZoom},
+    x: midpoint.x - rect.left - rect.width / 2,
+    y: midpoint.y - rect.top - rect.height / 2,
+    distance: b ? Math.max(1, Math.hypot(a.x - b.x, a.y - b.y)) : 0
+  };
+}
+galleryStage.addEventListener("pointerdown", event => {
+  if (event.pointerType === "mouse" && event.button !== 0) return;
+  event.preventDefault();
+  galleryPointers.set(event.pointerId, {x: event.clientX, y: event.clientY});
+  galleryStage.setPointerCapture(event.pointerId);
+  startGalleryGesture();
+});
+galleryStage.addEventListener("pointermove", event => {
+  if (!galleryPointers.has(event.pointerId) || !galleryGesture) return;
+  event.preventDefault();
+  galleryPointers.set(event.pointerId, {x: event.clientX, y: event.clientY});
+  const [a, b] = [...galleryPointers.values()];
+  const rect = galleryStage.getBoundingClientRect();
+  const midpoint = b ? {x: (a.x + b.x) / 2, y: (a.y + b.y) / 2} : a;
+  const x = midpoint.x - rect.left - rect.width / 2;
+  const y = midpoint.y - rect.top - rect.height / 2;
+  const start = galleryGesture.start;
+  if (b && galleryGesture.count === 2) {
+    const scale = Math.max(1, Math.min(4, start.scale * Math.hypot(a.x - b.x, a.y - b.y) / galleryGesture.distance));
+    galleryZoom = {scale, x: x - (galleryGesture.x - start.x) * scale / start.scale, y: y - (galleryGesture.y - start.y) * scale / start.scale};
+  } else if (galleryGesture.count === 1 && start.scale > 1) {
+    galleryZoom = {scale: start.scale, x: start.x + x - galleryGesture.x, y: start.y + y - galleryGesture.y};
+  }
+  paintGalleryZoom();
+});
+function endGalleryPointer(event) {
+  if (!galleryPointers.delete(event.pointerId)) return;
+  startGalleryGesture();
+}
+for (const type of ["pointerup", "pointercancel", "lostpointercapture"]) {
+  galleryStage.addEventListener(type, endGalleryPointer);
+}
+galleryStage.addEventListener("dblclick", event => {
+  event.preventDefault();
+  galleryZoom = {scale: galleryZoom.scale > 1 ? 1 : 2, x: 0, y: 0};
+  paintGalleryZoom();
+});
+galleryImage.addEventListener("load", paintGalleryZoom);
+window.addEventListener("resize", () => { if (!lb.hidden) resetGalleryZoom(); });
 
 /* ---------- mobilus meniu ---------- */
 const toggle = $(".nav-toggle");

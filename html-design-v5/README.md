@@ -32,3 +32,7 @@ Run `node build-pages.cjs` from this folder after changing property data or shar
 ## Validation
 
 JavaScript syntax, generated homepage, all ten standalone property pages, extension-free HTTP responses, local asset/link targets, category order, map controls and contact consistency checked programmatically. Browser automation is unavailable in this session, so a visual desktop/mobile check is still needed.
+
+## Gallery gestures
+
+On mobile, pinch inside the open gallery to zoom the photo up to 4×, then drag to pan. Changing the photo resets its zoom. The overlay prevents page pinch/scroll while open; normal browser zoom remains available outside the gallery. Double-clicking the photo toggles 2× zoom.
