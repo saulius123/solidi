@@ -87,13 +87,18 @@ const grid = (list) =>
     : `<p class="empty">Šiuo metu objektų nėra. <a href="#/kontaktai">Susisiekite</a> – pranešime, kai atsiras.</p>`;
 
 function contactForm({ message = "", compact = false } = {}) {
+  const contactId = compact ? "viewing-contact" : "enquiry-contact";
   return `
   <form class="form ${compact ? "form--compact" : ""}" data-form>
-    <div class="form-row">
-      <label><span>Vardas</span><input name="name" required autocomplete="name"></label>
-      <label><span>Telefonas</span><input name="phone" type="tel" autocomplete="tel"></label>
-    </div>
-    <label><span>El. paštas</span><input name="email" type="email" required autocomplete="email"></label>
+    <label><span>Vardas</span><input name="name" required autocomplete="name"></label>
+    <fieldset class="form-contact">
+      <legend class="form-contact-hint" id="${contactId}-hint">Telefonas arba el. paštas - bent vienas būtinas.</legend>
+      <div class="form-contact-fields">
+        <label><span>Telefonas</span><input name="phone" type="tel" autocomplete="tel" aria-describedby="${contactId}-hint ${contactId}-error"></label>
+        <label><span>El. paštas</span><input name="email" type="email" autocomplete="email" aria-describedby="${contactId}-hint ${contactId}-error"></label>
+      </div>
+      <p class="form-contact-error" id="${contactId}-error" role="status" hidden>Įrašykite telefono numerį arba el. pašto adresą.</p>
+    </fieldset>
     <label><span>Žinutė</span><textarea name="message" rows="${compact ? 3 : 4}">${esc(message)}</textarea></label>
     <p class="form-privacy">Pateikdami užklausą susipažinkite su <a href="${SITE_ROOT}privatumo-politika/" target="_blank" rel="noopener noreferrer">privatumo politika</a>.</p>
     <button class="btn btn-dark" type="submit">Siųsti laišką ${ICON.arrow}</button>
@@ -415,10 +420,35 @@ function setActiveNav(parts) {
 /* ---------- formos (be backend – tik demonstracija) ---------- */
 function bindForms() {
   document.querySelectorAll("[data-form]").forEach((form) => {
+    const phone = form.elements.namedItem("phone");
+    const email = form.elements.namedItem("email");
+    const error = form.querySelector(".form-contact-error");
+    const notice = form.querySelector(".form-ok");
+    const validateContact = () => {
+      const missing = !phone.value.trim() && !email.value.trim();
+      phone.setCustomValidity(missing ? error.textContent : "");
+      if (!missing) {
+        error.hidden = true;
+        phone.removeAttribute("aria-invalid");
+        email.removeAttribute("aria-invalid");
+      }
+      return !missing;
+    };
+    [phone, email].forEach((input) => input.addEventListener("input", validateContact));
+    phone.addEventListener("invalid", () => {
+      error.hidden = false;
+      phone.setAttribute("aria-invalid", "true");
+      email.setAttribute("aria-invalid", "true");
+    });
+    // Set the group rule before the browser performs native form validation.
+    validateContact();
+    form.addEventListener("input", () => { notice.hidden = true; });
     form.addEventListener("submit", (event) => {
       event.preventDefault();
+      validateContact();
+      if (!form.reportValidity()) return;
       // The WordPress implementation will submit to the server mail handler.
-      form.querySelector(".form-ok").hidden = false;
+      notice.hidden = false;
     });
   });
 }

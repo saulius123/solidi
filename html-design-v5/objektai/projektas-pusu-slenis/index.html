@@ -111,11 +111,15 @@
             <h3 class="h-xs">Užsiregistruoti apžiūrai</h3>
             
   <form class="form form--compact" data-form>
-    <div class="form-row">
-      <label><span>Vardas</span><input name="name" required autocomplete="name"></label>
-      <label><span>Telefonas</span><input name="phone" type="tel" autocomplete="tel"></label>
-    </div>
-    <label><span>El. paštas</span><input name="email" type="email" required autocomplete="email"></label>
+    <label><span>Vardas</span><input name="name" required autocomplete="name"></label>
+    <fieldset class="form-contact">
+      <legend class="form-contact-hint" id="viewing-contact-hint">Telefonas arba el. paštas - bent vienas būtinas.</legend>
+      <div class="form-contact-fields">
+        <label><span>Telefonas</span><input name="phone" type="tel" autocomplete="tel" aria-describedby="viewing-contact-hint viewing-contact-error"></label>
+        <label><span>El. paštas</span><input name="email" type="email" autocomplete="email" aria-describedby="viewing-contact-hint viewing-contact-error"></label>
+      </div>
+      <p class="form-contact-error" id="viewing-contact-error" role="status" hidden>Įrašykite telefono numerį arba el. pašto adresą.</p>
+    </fieldset>
     <label><span>Žinutė</span><textarea name="message" rows="3">Sveiki, domina objektas: Projektas „Pušų slėnis“ – kotedžai Bajoruose.</textarea></label>
     <p class="form-privacy">Pateikdami užklausą susipažinkite su <a href="../../privatumo-politika/" target="_blank" rel="noopener noreferrer">privatumo politika</a>.</p>
     <button class="btn btn-dark" type="submit">Siųsti laišką <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>

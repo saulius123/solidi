@@ -13,6 +13,7 @@ Serve this folder using any static server with directory index support (for exam
 - Sale, rental and project categories on the homepage; individual property views and photo gallery with keyboard navigation. No separate listing pages.
 - Google Maps loaded automatically on individual properties, without a Maps API key.
 - Contact form preview, privacy draft and persistent optional tracking choices.
+- Contact forms visibly group phone and email as alternatives and require at least one contact method. Name remains required; an entered email must pass browser email validation.
 
 ## Rebuild standalone pages
 
