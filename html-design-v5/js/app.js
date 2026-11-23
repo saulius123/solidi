@@ -59,7 +59,6 @@ function agentAvatar(a, cls = "avatar") {
 
 /* ---------- komponentai ---------- */
 function card(p) {
-  const a = AGENTS[p.agent];
   const third = thirdSpec(p);
   return `
   <a class="card" href="${propertyHref(p.id)}">
@@ -68,9 +67,9 @@ function card(p) {
       <span class="badge">${p.deal === "pardavimas" ? TYPE_LABEL[p.type] : DEAL_LABEL[p.deal]}</span>
     </div>
     <div class="card-body">
-      <div class="card-top">
-        <span class="agent">${agentAvatar(a)}${esc(a.name)}</span>
-        <span class="price">${fmtPrice(p)}</span>
+      <div class="card-pricing">
+        <span class="price">${fmtPrice(p)}</span>${p.deal !== "nuoma" && !p.priceFrom && p.area > 0 ? `
+        <span class="card-price-unit">${fmtNum.format(Math.round(p.price / p.area))} €/m²</span>` : ""}
       </div>
       <p class="card-title">${esc(p.title)}, ${fmtNum.format(p.area)} kv. m ploto</p>
       <ul class="specs">
