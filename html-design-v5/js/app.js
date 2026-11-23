@@ -200,7 +200,9 @@ function renderHome() {
         <p class="section-sub">Parašykite arba paskambinkite – nemokamai įvertinsime jūsų būsto vertę ir pasiūlysime pardavimo planą.</p>
         <div class="contact-people">${Object.values(AGENTS).map(a => {
           const phone = a.phone || "+370 600 00000";
-          return `<div><strong>${esc(a.name)}</strong>
+          return `<div class="contact-person">
+            ${agentAvatar(a, "avatar contact-portrait")}
+            <strong>${esc(a.name)}</strong>
             <a class="contact-method" href="tel:${phone.replace(/\s/g, "")}">${ICON.phone}<span>${esc(phone)}</span></a>
             <a class="contact-method" href="mailto:${esc(a.email)}">${ICON.mail}<span>${esc(a.email)}</span></a>
           </div>`;
@@ -222,7 +224,9 @@ function renderHome() {
 function renderProperty(id) {
   const p = PROPERTIES.find((x) => x.id === id);
   if (!p) return renderNotFound();
-  const a = AGENTS[p.agent];
+  const agents = Object.entries(AGENTS)
+    .filter(([id]) => p.agents.includes(id))
+    .map(([, agent]) => agent);
   document.title = `${p.title} – Solidi`;
 
   const back = {
@@ -306,7 +310,7 @@ function renderProperty(id) {
           <div class="price-card">
             <p class="price price--lg">${fmtPrice(p)}</p>
             ${p.deal !== "nuoma" && !p.priceFrom ? `<p class="muted">${fmtNum.format(Math.round(p.price / p.area))} €/m²</p>` : ""}
-            <div class="agent-card">
+            ${agents.map(a => `<div class="agent-card">
               ${agentAvatar(a, "avatar avatar--lg")}
               <div class="agent-details">
                 <strong>${esc(a.name)}</strong><span>${esc(a.role)}</span>
@@ -315,7 +319,7 @@ function renderProperty(id) {
                   <a class="agent-contact" href="mailto:${esc(a.email)}?subject=${encodeURIComponent(p.title)}">${ICON.mail}<span>${esc(a.email)}</span></a>
                 </div>
               </div>
-            </div>
+            </div>`).join("\n            ")}
             <h3 class="h-xs">Užsiregistruoti apžiūrai</h3>
             ${contactForm({ message: `Sveiki, domina objektas: ${p.title.replace(/\.$/, "")}.`, compact: true })}
           </div>

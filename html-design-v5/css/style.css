@@ -334,6 +334,9 @@ svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-wi
 .footer-grid .logo-text { display: flex; }
 .footer-grid .logo-sub { display: block; margin-top: 5px; }
 .footer-grid a:hover { color: #fff; }
+.footer-contact { margin: 0 0 18px; font-size: 13px; line-height: 1.7; }
+.footer-contact strong { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 500; }
+.footer-grid .footer-contact a { display: inline; margin: 0; white-space: nowrap; }
 .footer-note { margin-top: 20px; max-width: 32ch; color: #9EA299; }
 .footer-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 56px; padding-top: 24px; border-top: 1px solid #3A3E39; font-size: .85rem; color: #9EA299; }
 .to-top { text-decoration: none; }
@@ -431,15 +434,17 @@ h1,h2,h3 {font-weight:400;letter-spacing:-.035em}
 .skip-link{position:fixed;left:20px;top:-100px;padding:12px 18px;background:var(--warm);z-index:200}.skip-link:focus{top:10px}[hidden]{display:none!important}.privacy-copy{max-width:850px}.privacy-copy h1{margin-bottom:30px}.privacy-copy h2{font-size:1.65rem;margin:32px 0 16px}.draft-notice{background:var(--sand);padding:20px;border-left:3px solid var(--terra)}
 .cookie-panel{position:fixed;bottom:20px;left:20px;right:20px;max-width:1200px;margin:auto;z-index:90;padding:25px 30px;background:var(--warm);border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 80px #14201833;display:flex;align-items:center;gap:32px}.cookie-panel h2{font-size:1.45rem;letter-spacing:-.02em;margin-bottom:8px}.cookie-panel p{font-size:12px;max-width:65ch;margin-bottom:12px}.cookie-actions{display:flex;flex-wrap:wrap;gap:8px;min-width:210px}.cookie-actions .btn{flex:1;white-space:nowrap;padding:10px 15px;font-size:11px}.cookie-options{display:flex;gap:20px}.cookie-options label{display:flex;align-items:center;gap:8px;font-size:12px}.cookie-options input{width:16px;height:16px;accent-color:#34432d}
 @media(max-width:920px){.hero--overlay{height:auto;min-height:680px}.hero-side{right:15px}.hero-bottom{left:24px;right:24px}.nav-link{font-size:1.4rem}.cookie-panel{gap:20px}.cookie-actions{min-width:170px}}
-@media(max-width:600px){.hero{margin:0 10px}.hero--overlay{min-height:650px}.hero h1{font-size:clamp(2.5rem,10vw,3.6rem)}.hero--overlay .hero-content{padding:65px 24px 145px}.hero-side{display:none}.hero-bottom{font-size:9px;align-items:flex-end}.hero-bottom>span{max-width:180px}.hero-bottom a{white-space:nowrap}.hero-actions .btn{flex:0 1 auto}.contact-people{grid-template-columns:1fr}.cookie-panel{left:10px;right:10px;bottom:10px;padding:20px;flex-direction:column;align-items:stretch;gap:15px;max-height:80svh;overflow:auto}.cookie-actions{min-width:0}.form-row{min-width:0}}.agent{max-width:100%;overflow-wrap:anywhere}.contact-people strong{line-height:1.5;margin-bottom:8px}
+@media(max-width:600px){.hero{margin:0 10px}.hero--overlay{min-height:650px}.hero h1{font-size:clamp(2.5rem,10vw,3.6rem)}.hero--overlay .hero-content{padding:65px 24px 145px}.hero-side{display:none}.hero-bottom{font-size:9px;align-items:flex-end}.hero-bottom>span{max-width:180px}.hero-bottom a{white-space:nowrap}.hero-actions .btn{flex:0 1 auto}.contact-people{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.contact-people strong{font-size:13px;overflow-wrap:anywhere}.contact-people .contact-method{gap:6px;font-size:12px}.contact-people .contact-method svg{width:16px;height:16px}.contact-people .contact-method span{min-width:0;overflow-wrap:anywhere}.cookie-panel{left:10px;right:10px;bottom:10px;padding:20px;flex-direction:column;align-items:stretch;gap:15px;max-height:80svh;overflow:auto}.cookie-actions{min-width:0}.form-row{min-width:0}}.agent{max-width:100%;overflow-wrap:anywhere}.contact-people strong{line-height:1.5;margin-bottom:8px}
 
 /* Face-focused crops keep the original portrait files intact. */
 .portrait {position:relative;overflow:hidden;isolation:isolate}
 .portrait img {position:absolute;max-width:none;height:auto;object-fit:initial;display:block}
 .portrait[data-broker="lina"] img {width:160%;left:-30%;top:-9%}
 .portrait[data-broker="giedre"] img {width:160%;left:-30%;top:-18%}
-.agent-card .portrait {width:100%;height:auto;aspect-ratio:3/4;border-radius:14px}
-.agent-card .portrait[data-broker="lina"] img {width:100%;height:100%;left:0;top:0;object-fit:cover;object-position:50% 20%}
+.agent-card .portrait,.contact-person .portrait {width:100%;height:auto;aspect-ratio:3/4;border-radius:14px}
+.contact-person {min-width:0}
+.contact-person .contact-portrait {display:block;max-width:150px;margin-bottom:16px}
+.agent-card .portrait[data-broker="lina"] img,.contact-person .portrait[data-broker="lina"] img {width:100%;height:100%;left:0;top:0;object-fit:cover;object-position:50% 20%}
 .agent-card div {gap:6px;min-width:0;overflow-wrap:anywhere}
 .agent-card strong {font-size:15px;line-height:1.5;white-space:nowrap}
 

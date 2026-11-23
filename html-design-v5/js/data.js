@@ -8,6 +8,8 @@
 
    deal:  "pardavimas" | "nuoma" | "projektas"
    type:  "namas" | "butas" | "kitas"
+   agents: brokerių ID masyvas, pvz. ["lina", "giedre"].
+   Brokeriai rodomi AGENTS tvarka (Lina pirma).
    images: pirmoji nuotrauka – viršelis. Galite naudoti
            ir savo failus, pvz. "assets/objektai/butas-1.jpg"
    ========================================================= */
@@ -15,8 +17,8 @@
 const UNSPLASH = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=80`;
 
 const AGENTS = {
-  giedre: { name: "Giedrė Daugirdaitė", role: "NT brokerė", phone: "", email: "giedre@solidi.lt", photo: "assets/brokers/giedre.jpg" },
-  lina: { name: "Lina Matukienė", role: "NT brokerė", phone: "", email: "lina@solidi.lt", photo: "assets/brokers/lina-portrait.webp" }
+  lina: { name: "Lina Matukienė", role: "NT brokerė", phone: "", email: "lina@solidi.lt", photo: "assets/brokers/lina-portrait.webp" },
+  giedre: { name: "Giedrė Daugirdaitė", role: "NT brokerė", phone: "", email: "giedre@solidi.lt", photo: "assets/brokers/giedre.jpg" }
 };
 
 const PROPERTIES = [
@@ -36,7 +38,7 @@ const PROPERTIES = [
     finish: "Įrengtas",
     energy: "A++",
     coords: [54.6620, 25.2960],
-    agent: "giedre",
+    agents: ["lina", "giedre"],
     images: [
       UNSPLASH("photo-1502672260266-1c1ef2d93688"),
       UNSPLASH("photo-1484154218962-a197022b5858"),
@@ -71,7 +73,7 @@ const PROPERTIES = [
     finish: "Įrengtas",
     energy: "A++",
     coords: [54.7480, 25.1830],
-    agent: "lina",
+    agents: ["lina"],
     images: [
       UNSPLASH("photo-1600596542815-ffad4c1539a9"),
       UNSPLASH("photo-1600585154340-be6161a56a0c"),
@@ -102,7 +104,7 @@ const PROPERTIES = [
     finish: "Įrengtas",
     energy: "C",
     coords: [54.6840, 25.2830],
-    agent: "lina",
+    agents: ["lina"],
     images: [
       UNSPLASH("photo-1522708323590-d24dbb6b0267"),
       UNSPLASH("photo-1505691938895-1758d7feb511"),
@@ -130,7 +132,7 @@ const PROPERTIES = [
     finish: "Įrengtas",
     energy: "A+",
     coords: [54.6850, 25.3500],
-    agent: "giedre",
+    agents: ["giedre"],
     images: [
       UNSPLASH("photo-1564013799919-ab600027ffc6"),
       UNSPLASH("photo-1600047509807-ba8f99d2cdde"),
@@ -158,7 +160,7 @@ const PROPERTIES = [
     finish: "Įrengtas",
     energy: "A+",
     coords: [54.7720, 25.2950],
-    agent: "lina",
+    agents: ["lina"],
     images: [
       "assets/hero.png",
       UNSPLASH("photo-1497366216548-37526070297c")
@@ -185,7 +187,7 @@ const PROPERTIES = [
     finish: "Įrengtas",
     energy: "A",
     coords: [54.6960, 25.2730],
-    agent: "lina",
+    agents: ["lina"],
     images: [
       UNSPLASH("photo-1497366216548-37526070297c"),
       UNSPLASH("photo-1600607687939-ce8a6c25118c")
@@ -212,7 +214,7 @@ const PROPERTIES = [
     finish: "Įrengtas, su baldais",
     energy: "B",
     coords: [54.6920, 25.2530],
-    agent: "giedre",
+    agents: ["giedre"],
     images: [
       UNSPLASH("photo-1560448204-e02f11c3d0e2"),
       UNSPLASH("photo-1505691938895-1758d7feb511"),
@@ -240,7 +242,7 @@ const PROPERTIES = [
     finish: "Įrengtas, su baldais",
     energy: "A",
     coords: [54.7140, 25.3110],
-    agent: "lina",
+    agents: ["lina"],
     images: [
       UNSPLASH("photo-1512917774080-9991f1c4c750"),
       UNSPLASH("photo-1600210492486-724fe5c67fb0"),
@@ -269,7 +271,7 @@ const PROPERTIES = [
     energy: "A++",
     units: 12,
     coords: [54.7380, 25.2650],
-    agent: "lina",
+    agents: ["lina"],
     images: [
       UNSPLASH("photo-1600566753190-17f0baa2a6c3"),
       UNSPLASH("photo-1600585154340-be6161a56a0c"),
@@ -298,7 +300,7 @@ const PROPERTIES = [
     energy: "A++",
     units: 64,
     coords: [54.7050, 25.2950],
-    agent: "giedre",
+    agents: ["giedre"],
     images: [
       UNSPLASH("photo-1613490493576-7fde63acd811"),
       UNSPLASH("photo-1502672260266-1c1ef2d93688"),
